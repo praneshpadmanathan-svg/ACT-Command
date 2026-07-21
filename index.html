@@ -1746,17 +1746,14 @@ The caution is warranted for a further reason. Senescence exists because it does
   + "#ar-pathbtn{position:fixed;left:14px;bottom:114px;z-index:70;display:flex;align-items:center;gap:9px;background:linear-gradient(180deg,#1a1144,#0c1430);border:2px solid #533d8c;border-radius:10px;padding:8px 13px;cursor:pointer;font-family:'Press Start 2P';font-size:10px;color:#ffd23e;box-shadow:0 4px 0 rgba(0,0,0,.5)}"
   + "#ar-pathbtn:hover{border-color:#ffd23e;box-shadow:0 4px 0 rgba(0,0,0,.5),0 0 18px rgba(255,210,62,.45)}";
   CSS = CSS
-  + "#ar-title{cursor:pointer;--cw:min(52vw,560px)}"
-  + "#ar-title .zoom{position:absolute;inset:0;overflow:hidden}"
-  + "#ar-title .zoom .ar-scene{transform:scale(2.2);transform-origin:36% 76%}"
-  + "#ar-title .cliff{position:absolute;left:0;bottom:0;width:var(--cw);height:calc(var(--cw)*.57);z-index:2}"
-  + "#ar-title .dude{position:absolute;left:calc(var(--cw)*.3);bottom:calc(var(--cw)*.47);z-index:3;filter:drop-shadow(0 5px 0 rgba(0,0,0,.45))}"
-  + "#ar-title .tt{position:absolute;right:7%;top:20%;text-align:right;z-index:3}"
-  + "#ar-title .t1{font-family:'Press Start 2P';font-size:clamp(26px,5.4vw,52px);color:#ff9d5c;text-shadow:0 0 28px rgba(255,157,92,.6),4px 4px 0 #5a1c08,8px 8px 0 rgba(0,0,0,.35)}"
-  + "#ar-title .t2{font-family:'Press Start 2P';font-size:clamp(26px,5.4vw,52px);color:#ffd23e;margin-top:10px;text-shadow:0 0 28px rgba(255,210,62,.55),4px 4px 0 #6b2d00,8px 8px 0 rgba(0,0,0,.35)}"
-  + "#ar-title .ts{font-family:'VT323';font-size:clamp(17px,2.2vw,24px);color:#d9c9e8;margin-top:16px;letter-spacing:.1em}"
-  + "#ar-title .ps{font-family:'Press Start 2P';font-size:clamp(11px,1.6vw,15px);color:#eaeeff;margin-top:34px;animation:ar-ps 1.2s steps(2) infinite;text-shadow:2px 2px 0 #000}"
-  + "@keyframes ar-ps{0%,55%{opacity:1}56%,100%{opacity:.15}}"
+  + "#ar-title{cursor:pointer}"
+  + "#ar-title .ar-tscene{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}"
+  + "#ar-title .tt{position:absolute;left:7%;top:50%;transform:translateY(-52%);z-index:3;text-align:left}"
+  + "#ar-title .t1{font-family:'Press Start 2P';font-size:clamp(28px,6vw,60px);color:#ffe488;text-shadow:0 0 30px rgba(255,196,60,.75),4px 4px 0 #b0531a,8px 8px 0 rgba(60,20,10,.5)}"
+  + "#ar-title .t2{font-family:'Press Start 2P';font-size:clamp(28px,6vw,60px);color:#ff9d3c;margin-top:12px;text-shadow:0 0 30px rgba(255,120,50,.7),4px 4px 0 #6b2408,8px 8px 0 rgba(40,10,20,.5)}"
+  + "#ar-title .ts{font-family:'VT323';font-size:clamp(18px,2.4vw,26px);color:#ffe0b0;margin-top:20px;letter-spacing:.12em;text-shadow:2px 2px 0 rgba(40,10,20,.6)}"
+  + "#ar-title .ps{font-family:'Press Start 2P';font-size:clamp(11px,1.7vw,16px);color:#fff3d0;margin-top:38px;animation:ar-ps 1.2s steps(2) infinite;text-shadow:2px 2px 0 #000}"
+  + "@keyframes ar-ps{0%,55%{opacity:1}56%,100%{opacity:.12}}"
   + ".ar-focus{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;padding:14px 12px 4px;position:relative;z-index:3}"
   + ".ar-focus .fl{font-family:'Silkscreen';font-size:9px;color:#a89ac6;letter-spacing:.1em}"
   + ".ar-fbtn{font-family:'Press Start 2P';font-size:8px;padding:9px 12px;border-radius:8px;border:2px solid #3a2a62;background:#181038;color:#a89ac6;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.5);transition:border-color .12s,transform .07s}"
@@ -1997,44 +1994,109 @@ The caution is warranted for a further reason. Senescence exists because it does
   }
 
   /* ---------------- TITLE SCREEN (cliff hero) ---------------- */
-  var TITLE_ROWS = [
-    "......hhhhhh......",
-    ".....hhhhhhhh.....",
-    "....hhhhhhhhhh....",
-    "....lhhhhhhhhh....",
-    "....lhhhhhhhhh....",
-    "....hhhhhhhhhh....",
-    ".....hhhhhhhh.....",
-    "......hhhhhh......",
-    ".......ssss.......",
-    "....cccccccc......",
-    "...cccccccccc.cc..",
-    "...oodooooooo..cc.",
-    "..ooodoooooooo.cc.",
-    "..oooddooooooo....",
-    ".ooo.oddooooo.ooo.",
-    ".ooo.oodddoo.ooo..",
-    ".ooo.ooooddo.ooo..",
-    ".sss.ooooodd.sss..",
-    "....oooooooo......",
-    "....oooooooo......",
-    "....ffffffff......",
-    "....ppp..ppp......",
-    "....ppp..ppp......",
-    "....ppp..ppp......",
-    "....ppp..ppp......",
-    "....bbb..bbb......",
-    "...bbbb..bbbb....."
+  /* lone silhouette on the peak (rim-lit by the sun) */
+  var FIG_ROWS = [
+    "..............................",
+    "..............................",
+    "............hhhhhhhgg.........",
+    "...........hhhhhhhhhhgg.......",
+    "...........hhhhhhhhhSh.g......",
+    "...........hhhhhhhhhh.g.......",
+    "...........hhhhSsgkkk.........",
+    "...........hhggSseeek.........",
+    "...........hhggSssekks........",
+    "...........hhggSsskks.........",
+    "...........hhggSssmmk.........",
+    "...........hhggSSSsss.........",
+    "...........hhhSSSSSS..........",
+    "...........hhhSSssc...........",
+    "............CcSSssc...........",
+    "........jjjjCcccAAcjjR........",
+    "........jjjjjjCcAjjjjbR.......",
+    ".......JjJJJjjjcAjbjjbR.......",
+    ".......JJJJJjjjAjjbjjbR.......",
+    ".......JJJJJjjAjjjbjjbR.......",
+    ".......JJJJJjAjjjjbjjbR.......",
+    ".......JJJJJAyjjjjbjjbR.......",
+    ".......JJJJJAjjjjjbjjbR.......",
+    ".......JJJJAjjjjjjbjjbR.......",
+    ".......JJJAJjjjjjjjjbbR.......",
+    ".......JJJAJjjjjjjjjbR........",
+    ".....AaaaAJJjjjjjjjjbR........",
+    ".....AaaAaJJjjjjjjjjbR........",
+    ".....AaaaaJJjjjjjjjjbR........",
+    ".....AayaaJJjjjjjjjjbR........",
+    ".....AaaaaJJjjjjjjjjbR........",
+    ".....AaaaaJJjjjjjjjjbR........",
+    ".....AaaaaPPPPPPPPPPR.........",
+    ".....AAAAAPPPPPPPPPR..........",
+    ".........PPpppPPpppbR.........",
+    ".........PPpppPPpppbR.........",
+    ".........PPppp..pppbR.........",
+    ".........PPppp..pppbR.........",
+    ".........PPppp..pppbR.........",
+    ".........PPppp..pppbR.........",
+    ".........PPppp..pppbR.........",
+    ".........PPppp..pppbR.........",
+    ".........PPppp..pppbR.........",
+    ".........PPppp..pppbR.........",
+    ".........PPppp..pppbR.........",
+    ".......tttttRRR.tttttRRR......",
+    ".......TTtttRRR.TTtttRRR......",
+    ".......TTttttt..TTttttR.......",
+    ".......TTttttt..TTttttR.......",
+    ".............................."
   ];
-  var TITLE_PAL = { h: "#4a2f1e", l: "#6b452c", s: "#e8b48c", c: "#ff6ea9", o: "#7a3fb8", d: "#4a2578", f: "#2a1a4e", p: "#2f2350", b: "#1a0f2e" };
+  var FIG_PAL = { "h": "#3a2617", "g": "#8a5a30", "S": "#a2603c", "s": "#d18a5c", "k": "#f4b487", "e": "#2a1912", "m": "#7c3f34", "c": "#e8eef4", "C": "#aab6c2", "J": "#14303f", "j": "#276486", "b": "#3f8fb4", "R": "#ffe3a0", "a": "#6a4526", "A": "#3a2414", "y": "#ffd23e", "p": "#241f3a", "P": "#15112a", "t": "#46301f", "T": "#29190f" };
+  function pixSvg(rows, pal, u, ox, oy) {
+    var s = "";
+    for (var y = 0; y < rows.length; y++) for (var x = 0; x < rows[y].length; x++) {
+      var c = rows[y][x]; if (c !== "." && pal[c]) s += "<rect x='" + (ox + x * u).toFixed(2) + "' y='" + (oy + y * u).toFixed(2) + "' width='" + (u + 0.05).toFixed(2) + "' height='" + (u + 0.05).toFixed(2) + "' fill='" + pal[c] + "'/>";
+    }
+    return s;
+  }
+  function titleScene() {
+    var r = 71;
+    function rnd() { r = (r * 16807) % 2147483647; return r / 2147483647; }
+    var st = "";
+    for (var i = 0; i < 46; i++) {
+      var x = (rnd() * 320) | 0, y = (rnd() * 72) | 0;
+      st += "<rect class='" + (i % 3 ? "tw1" : "tw2") + "' x='" + x + "' y='" + y + "' width='1.5' height='1.5' fill='" + (rnd() > .7 ? "#fff3c8" : "#ffd9a8") + "' opacity='.7'/>";
+    }
+    var birds = "";
+    for (var b = 0; b < 5; b++) {
+      var bx = 40 + (rnd() * 150) | 0, by = 46 + (rnd() * 34) | 0;
+      birds += "<path d='M" + bx + " " + by + " l3 -2 l3 2 l3 -2 l3 2' stroke='#3a1c40' stroke-width='1' fill='none' opacity='.6'/>";
+    }
+    /* sun with retro banding */
+    var scx = 284, scy = 92;
+    var sun = "<circle cx='" + scx + "' cy='" + scy + "' r='34' fill='#ffe36e'/>";
+    for (var y2 = scy - 6; y2 < scy + 42; y2 += 5) {
+      var gap = (y2 - (scy - 6)) / 9 + 1.2;
+      sun += "<rect x='" + (scx - 40) + "' y='" + y2 + "' width='80' height='" + gap.toFixed(1) + "' fill='#e0602c' opacity='.5'/>";
+    }
+    var HAZ = [10,18,14,24,34,26,18,28,40,30,22,14,24,36,28,20,30,44,34,24,16,26,38,30,22,32,46,36,26,18,28,40,30,20,30,42,32,22,14,22];
+    var RDG = [14,26,20,34,48,38,26,40,58,44,30,20,34,52,60,46,34,50,66,50,36,26,40,58,46,34,44,62,48,34,24,36,52,40,28,40,56,44,30,20];
+    return "<svg class='ar-tscene' viewBox='0 0 320 180' preserveAspectRatio='xMidYMid slice' shape-rendering='crispEdges' xmlns='http://www.w3.org/2000/svg'>"
+      + "<defs><linearGradient id='tsky' x1='0' y1='0' x2='0' y2='1'>"
+      + "<stop offset='0' stop-color='#1e0c40'/><stop offset='.26' stop-color='#4a1656'/><stop offset='.5' stop-color='#9c2f55'/><stop offset='.68' stop-color='#e0602c'/><stop offset='.84' stop-color='#ffab3d'/><stop offset='1' stop-color='#ffe488'/></linearGradient>"
+      + "<radialGradient id='tsun' cx='.5' cy='.5' r='.5'><stop offset='0' stop-color='#fff3b4' stop-opacity='.95'/><stop offset='.45' stop-color='#ffcf5c' stop-opacity='.55'/><stop offset='1' stop-color='#ff9d3c' stop-opacity='0'/></radialGradient></defs>"
+      + "<rect width='320' height='180' fill='url(#tsky)'/>"
+      + st + birds
+      + "<circle cx='284' cy='92' r='82' fill='url(#tsun)' shape-rendering='auto'/>"
+      + sun
+      + ridge(HAZ, 8, 156, "#b56a86", ".55") + caps(HAZ, 8, 156, 30, "#ffd0b0")
+      + ridge(RDG, 8, 172, "#5e2b60")
+      + "<polygon points='36,180 92,138 138,102 184,72 228,48 248,48 274,84 302,126 320,150 320,180' fill='#1b0c30'/>"
+      + "<polyline points='248,48 274,84 302,126 320,150' fill='none' stroke='#ff9d4c' stroke-width='2' opacity='.85'/>"
+      + "<polyline points='228,48 184,72 138,102' fill='none' stroke='#6a2f6e' stroke-width='1.5' opacity='.7'/>"
+      + pixSvg(FIG_ROWS, FIG_PAL, 0.56, 229, 20)
+      + "<polygon points='0,180 0,158 40,132 84,158 120,134 168,164 168,180' fill='#120722'/>"
+      + pines([8,20,12,26,16,10,22,14,8,18,12,24,14,8], 12, 182, 55, "#221040", "#0d0620")
+      + "</svg>";
+  }
   function showTitle() {
-    var T = el("ar-title", "<div class='zoom'>" + scene() + "</div>" + crt()
-      + "<svg class='cliff' viewBox='0 0 140 80' preserveAspectRatio='none' shape-rendering='crispEdges' xmlns='http://www.w3.org/2000/svg'>"
-      + "<polygon points='0,80 0,26 10,26 10,18 36,18 36,12 92,12 92,20 112,20 112,34 126,34 126,52 140,52 140,80' fill='#150b2e'/>"
-      + "<rect x='10' y='18' width='26' height='3' fill='#2a1a4e'/><rect x='36' y='12' width='56' height='3' fill='#2a1a4e'/><rect x='92' y='20' width='20' height='3' fill='#241448'/>"
-      + "<rect x='50' y='30' width='4' height='4' fill='#241448'/><rect x='70' y='44' width='5' height='4' fill='#241448'/><rect x='24' y='36' width='4' height='3' fill='#241448'/>"
-      + "</svg>"
-      + "<div class='dude'>" + pix(TITLE_ROWS, TITLE_PAL, 8) + "</div>"
+    var T = el("ar-title", titleScene() + crt()
       + "<div class='tt'><div class='t1'>COMMAND</div><div class='t2'>THE ACT</div><div class='ts'>A GAME YOU PLAY. A 36 YOU EARN.</div><div class='ps'>&#9654; PRESS START</div></div>");
     T.addEventListener("click", function () {
       if (shielded(T)) return;
