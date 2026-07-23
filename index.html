@@ -2550,6 +2550,58 @@ The caution is warranted for a further reason. Senescence exists because it does
   + ".lz-recap li{color:#3a2a17;border-bottom-color:#d9c49b}.lz-recap li::before{color:#2f9a52}"
   + ".ar-coach{background:#fdf1d3;border-color:#e6c07a}.ar-coach .ch{color:#a8730f}.ar-coach .ci{color:#5a4a2e}"
   + ".ar-qsrc{color:#8a6a3a}";
+  CSS = CSS
+  + "#ar-dash{position:fixed;inset:0;overflow-y:auto;background:#150e07;font-family:'Nunito',system-ui,sans-serif;-webkit-font-smoothing:antialiased}"
+  + ".dash-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;user-select:none}"
+  + ".dash-scrim{position:fixed;inset:0;background:radial-gradient(120% 85% at 50% 0%,rgba(20,12,5,.5),rgba(15,9,4,.86)),linear-gradient(180deg,rgba(15,9,4,.72),rgba(15,9,4,.5) 34%,rgba(15,9,4,.8))}"
+  + ".dash-wrap{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:24px 22px 44px}"
+  + ".dash-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;gap:12px;flex-wrap:wrap}"
+  + ".dash-brand{font-family:'Cinzel',serif;font-weight:700;font-size:19px;letter-spacing:.09em;color:#f2d79a;text-shadow:0 2px 6px rgba(0,0,0,.7)}"
+  + ".dash-brand .bstar{color:#ffcf5c}"
+  + ".dash-hi{display:flex;align-items:center;gap:18px;margin-bottom:24px}"
+  + ".dash-badge{flex-shrink:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,.55))}"
+  + ".dash-hitx{min-width:0;flex:1}"
+  + ".dash-hitx .dg{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(23px,3.4vw,31px);color:#fbefd4;text-shadow:0 2px 9px rgba(0,0,0,.75);line-height:1.12}"
+  + ".dash-hitx .dr{font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.12em;color:#eabf76;text-transform:uppercase;margin-top:5px;text-shadow:0 1px 4px rgba(0,0,0,.6)}"
+  + ".dash-hitx .dxp{height:11px;background:rgba(0,0,0,.42);border:1px solid rgba(255,220,150,.4);border-radius:6px;overflow:hidden;margin-top:10px;max-width:380px}"
+  + ".dash-hitx .dxp i{display:block;height:100%;background:linear-gradient(90deg,#f0a552,#ffd23e);border-radius:5px;transition:width .6s}"
+  + ".dash-hitx .dxpm{font-size:11px;letter-spacing:.07em;color:#d3ba8e;margin-top:7px;text-transform:uppercase;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.6)}"
+  + ".dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}"
+  + ".dash-cont{grid-column:1/-1;position:relative;display:block;text-align:left;padding:22px 26px 22px 30px;border:none;cursor:pointer;border-radius:16px;background:linear-gradient(140deg,#f7edd8,#e9dab9);box-shadow:0 16px 40px rgba(0,0,0,.45),0 0 0 2px #c39a5a,0 0 0 5px #6b4a24,inset 0 0 60px rgba(120,85,35,.1);overflow:hidden}"
+  + ".dash-cont::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(180deg,#f0a552,#d1662f)}"
+  + ".dash-cont .dc-k{font-family:'Cinzel',serif;font-weight:700;font-size:11px;letter-spacing:.16em;color:#a8730f}"
+  + ".dash-cont .dc-n{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(22px,3vw,30px);color:#3a2a15;line-height:1.12;margin:5px 0 3px}"
+  + ".dash-cont .dc-s{font-size:14.5px;color:#7a5c30;font-weight:600}"
+  + ".dash-cont .dc-go{margin-top:14px;text-align:center;font-family:'Cinzel',serif;font-weight:700;font-size:14px;letter-spacing:.05em;color:#3a1806;background:linear-gradient(180deg,#f2a954,#d1662f);border:1px solid #9d4a1d;box-shadow:0 4px 0 #7a3915;border-radius:11px;padding:13px;transition:filter .1s}"
+  + ".dash-cont:hover{transform:translateY(-3px);transition:transform .12s}.dash-cont:hover .dc-go{filter:brightness(1.06)}"
+  + ".dash-cont:active{transform:translateY(0)}"
+  + ".dash-card{background:linear-gradient(158deg,#f6ecd6,#e9dab9);border-radius:16px;padding:20px 22px;box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 0 2px #c39a5a,0 0 0 5px #6b4a24}"
+  + ".dash-card h4{font-family:'Cinzel',serif;font-weight:700;font-size:15px;letter-spacing:.04em;color:#4a3115;margin:0 0 16px;padding-bottom:11px;border-bottom:1px solid rgba(150,110,50,.35)}"
+  + ".dash-rings{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:16px}"
+  + ".dring{display:flex;flex-direction:column;align-items:center;position:relative}"
+  + ".dring svg{width:58px;height:58px}"
+  + ".dring .drbg{fill:none;stroke:#dcc79e;stroke-width:7}"
+  + ".dring .drfg{fill:none;stroke-width:7;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .7s ease}"
+  + ".dring .drp{position:absolute;top:20px;font-family:'Cinzel',serif;font-weight:700;font-size:13px;color:#4a3115}"
+  + ".dring .drl{font-family:'Cinzel',serif;font-weight:600;font-size:9.5px;letter-spacing:.03em;color:#7a5c30;margin-top:6px;text-transform:uppercase;text-align:center}"
+  + ".dash-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid rgba(150,110,50,.3);padding-top:14px}"
+  + ".dash-mini div{text-align:center}"
+  + ".dash-mini b{display:block;font-family:'Cinzel',serif;font-weight:700;font-size:21px;color:#b5741a}"
+  + ".dash-mini span{font-size:10.5px;letter-spacing:.06em;color:#8a6a3a;text-transform:uppercase;font-weight:700}"
+  + ".dash-plan{display:flex;flex-direction:column;margin-bottom:14px}"
+  + ".dp-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(150,110,50,.22)}"
+  + ".dp-row:last-child{border-bottom:none}"
+  + ".dp-row span{font-size:15px;color:#6b4a24;font-weight:600}"
+  + ".dp-row b{font-family:'Cinzel',serif;font-weight:700;font-size:19px;color:#b5741a}"
+  + ".dash-link{background:none;border:none;cursor:pointer;font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:.04em;color:#a8730f;padding:6px 2px;text-align:left}"
+  + ".dash-link:hover{color:#7a5410;text-decoration:underline}"
+  + ".dash-acts{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:22px}"
+  + ".dash-act{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:17px 6px;cursor:pointer;border-radius:14px;border:1px solid rgba(255,220,150,.24);background:linear-gradient(180deg,rgba(62,43,20,.82),rgba(40,28,13,.85));color:#f0e0be;box-shadow:0 6px 16px rgba(0,0,0,.42);font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:.03em;transition:transform .1s,filter .1s,border-color .1s}"
+  + ".dash-act:hover{transform:translateY(-3px);filter:brightness(1.16);border-color:rgba(255,220,150,.55)}"
+  + ".dash-act:active{transform:translateY(0)}"
+  + ".dash-act svg{width:24px;height:24px}"
+  + ".dash-cont:focus-visible,.dash-act:focus-visible,.dash-link:focus-visible,#dash-signin:focus-visible,#dash-signout:focus-visible{outline:3px solid #ffd23e;outline-offset:3px}"
+  + "@media(max-width:760px){.dash-grid{grid-template-columns:1fr}.dash-acts{grid-template-columns:repeat(3,1fr)}.dash-wrap{padding:18px 15px 36px}}";
   var st = document.createElement("style");
   st.id = "arcade-journey-css"; st.textContent = "@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&display=swap');" + CSS;
   document.head.appendChild(st);
@@ -3167,7 +3219,7 @@ The caution is warranted for a further reason. Senescence exists because it does
       + "<div class='st-final'><h2 class='st-fh'>Ready to command the ACT?</h2><p class='st-fp'>Free forever. No downloads. Start in seconds.</p><button class='ar-btn green big' id='st-start3'>Start studying free &#9654;</button></div>"
       + "<div class='st-foot'>ACT COMMAND &middot; BUILT FOR THE ENHANCED ACT &middot; STUDY ANYWHERE</div>"
       + "</div>");
-    function enter() { try { localStorage.setItem("arcade:entered", "1"); if (!signedIn() && !isGuest()) localStorage.setItem("arcade:guest", "1"); } catch (e) {} sfx("achieve"); fx("burst"); S.remove(); showJourney(); }
+    function enter() { try { localStorage.setItem("arcade:entered", "1"); if (!signedIn() && !isGuest()) localStorage.setItem("arcade:guest", "1"); } catch (e) {} sfx("achieve"); fx("burst"); S.remove(); showDashboard(); }
     S.addEventListener("click", function (ev) {
       if (shielded(S)) return;
       var id = ev.target.id;
@@ -3447,6 +3499,54 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
     science: [[64,72],[90,66],[78,79],[31,74],[42,81],[55,76],[16,78],[72,85],[49,71]]
   };
   var REGION_LABEL = { english:[45,6,"The Grammar Village"], reading:[80,19,"The Enchanted Woods"], math:[72,63,"The Number Desert"], science:[22,87,"The Science Isles"] };
+  function dring(pc,color,label){var r=26,c=2*Math.PI*r,off=c*(1-pc/100);return "<div class='dring'><svg viewBox='0 0 64 64' aria-hidden='true'><circle class='drbg' cx='32' cy='32' r='26'></circle><circle class='drfg' cx='32' cy='32' r='26' style='stroke:"+color+";stroke-dasharray:"+c.toFixed(1)+";stroke-dashoffset:"+off.toFixed(1)+"'></circle></svg><span class='drp'>"+pc+"%</span><span class='drl'>"+label+"</span></div>";}
+  function dact(k,label){var ic=k==="map"?"map":k==="test"?"clock":k==="review"?"refresh":k==="tools"?"tools":k==="daily"?"bolt":"chart";return "<button class='dash-act' data-dact='"+k+"'>"+navIcon(ic)+"<span>"+label+"</span></button>";}
+  function showDashboard(){
+    if(!document.getElementById("ar-mapfonts")){var lk=document.createElement("link");lk.id="ar-mapfonts";lk.rel="stylesheet";lk.href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IM+Fell+English+SC&display=swap";document.head.appendChild(lk);}
+    var s=appState()||{},xp=s.xp||0,rk=rankOf(xp),guest=isGuest(),js0=jstate();
+    var acc=s.answered?Math.round((s.correct||0)/s.answered*100):null;
+    var pct=rk.tier.top?100:Math.round(rk.into/rk.span*100);
+    var ctx=achvCtx();
+    var nz=null;
+    for(var pi=0;pi<PATHS.length&&!nz;pi++){var pp=PATHS[pi],uu0=laneUnlockIdx(pp);for(var ii=0;ii<pp.nodes.length;ii++){var lk0=guest?ii>0:ii>uu0;if(!js0.done[pp.nodes[ii].id]&&!lk0){nz={lane:pp,node:pp.nodes[ii]};break;}}}
+    var rings=PATHS.map(function(p){var dn=p.nodes.filter(function(n){return js0.done[n.id];}).length;return dring(Math.round(dn/p.nodes.length*100),p.color,p.name.replace(/^The\s+/i,"").split(" ")[0]);}).join("");
+    var predScore=s.predScore||(acc!=null?scaleScore(acc/100):"—");
+    var contName=nz?nz.node.name:"The Final Summit";
+    var contSub=nz?(nz.lane.name+" · up next"):"All zones cleared — take the mock test";
+    var greet=guest?"Welcome, adventurer":("Welcome back, "+esc(playerName()));
+    var D=el("ar-dash",
+      "<img class='dash-bg' src='"+"Gemini_Generated_Image_gib6ikgib6ikgib6.png"+"' alt='' draggable='false'/>"
+      +"<div class='dash-scrim'></div>"
+      +"<div class='dash-wrap'>"
+      +"<header class='dash-top'><div class='dash-brand'><span class='bstar'>&#10022;</span> ACT COMMAND</div>"
+      +"<div class='dash-acct'>"+(guest?"<button class='ar-btn' id='dash-signin'>Sign in</button>":"<button class='ar-btn ghost' id='dash-signout'>Sign out</button>")+"</div></header>"
+      +"<div class='dash-hi'><div class='dash-badge'>"+rankBadgeSvg(rk,64)+"</div>"
+      +"<div class='dash-hitx'><div class='dg'>"+greet+"</div><div class='dr'>"+rk.label+(rk.tier.top?"":" "+rk.roman)+"</div>"
+      +"<div class='dxp'><i style='width:"+pct+"%'></i></div><div class='dxpm'>"+(rk.tier.top?"MAX RANK":rk.need+" XP to "+rk.next)+"</div></div></div>"
+      +"<div class='dash-grid'>"
+      +"<button class='dash-cont' id='dash-cont'><div class='dc-k'>&#9873; CONTINUE YOUR QUEST</div><div class='dc-n'>"+esc(contName)+"</div><div class='dc-s'>"+contSub+"</div><div class='dc-go'>"+(nz?"Start lesson":"Take mock test")+" &#9654;</div></button>"
+      +"<section class='dash-card'><h4>Your Progress</h4><div class='dash-rings'>"+rings+"</div>"
+      +"<div class='dash-mini'><div><b>"+ctx.zones+"/37</b><span>Zones</span></div><div><b>"+predScore+"</b><span>Est. score</span></div><div><b>"+(acc!=null?acc+"%":"—")+"</b><span>Accuracy</span></div></div>"
+      +"<button class='dash-link' id='dash-stats'>View full stats &#9654;</button></section>"
+      +"<section class='dash-card'><h4>Today&#39;s Plan</h4><div class='dash-plan'>"
+      +"<div class='dp-row'><span>Target score</span><b>"+(s.targetScore||36)+"</b></div>"
+      +"<div class='dp-row'><span>Day streak</span><b>"+(s.dailyStreak||0)+"</b></div>"
+      +"<div class='dp-row'><span>Lessons read</span><b>"+((s.notesRead||[]).length)+"/37</b></div></div>"
+      +"<button class='dash-link' id='dash-plan'>Open study plan &#9654;</button></section>"
+      +"</div>"
+      +"<nav class='dash-acts' aria-label='Quick actions'>"+dact("map","Adventure Map")+dact("test","Mock Test")+dact("review","Review")+dact("tools","Toolkit")+dact("daily","Daily")+dact("stats","Progress")+"</nav>"
+      +"</div>");
+    D.addEventListener("click",function(ev){var t=ev.target;
+      var a=t.closest&&t.closest("[data-dact]");
+      if(a){var k=a.dataset.dact;if(k==="map"){D.remove();showJourney();return;}if(k==="test"){D.remove();showTest();return;}if(k==="review"){showReview();return;}if(k==="tools"){showToolkit();return;}if(k==="daily"){showDaily();return;}if(k==="stats"){showStats();return;}return;}
+      if(t.closest&&t.closest("#dash-cont")){D.remove();showJourney();if(nz){setTimeout(function(){sfx("correct");showJunction(nz.lane,nz.node);},90);}else{setTimeout(showTest,90);}return;}
+      if(t.closest&&t.closest("#dash-stats")){showStats();return;}
+      if(t.closest&&t.closest("#dash-plan")){showPlan();return;}
+      if(t.closest&&t.closest("#dash-signin")){D.remove();showAuth("signin");return;}
+      if(t.closest&&t.closest("#dash-signout")){signOut();return;}
+    });
+    body.appendChild(D);
+  }
   function showJourney() {
     if (!document.getElementById("ar-mapfonts")) { var lk=document.createElement("link"); lk.id="ar-mapfonts"; lk.rel="stylesheet"; lk.href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IM+Fell+English+SC&display=swap"; document.head.appendChild(lk); }
     var s = appState() || {}, xp = s.xp || 0, rk = rankOf(xp), guest = isGuest(), js0 = jstate();
@@ -3486,7 +3586,7 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
       + "<nav class='wsb-nav'>"
       + nav("map","map","Adventure Map",true)+nav("test","clock","Mock Test")+nav("stats","chart","Progress")+nav("plan","route","My Plan")+nav("tools","tools","Toolkit")+nav("daily","bolt","Daily")
       + "</nav>"
-      + "<div class='wsb-foot'>" + (guest ? nav("login","login","Log in") : nav("signout","out","Sign out")) + nav("home","out","Home") + "</div></aside>";
+      + "<div class='wsb-foot'>" + (guest ? nav("login","login","Log in") : nav("signout","out","Sign out")) + nav("home","out","Dashboard") + "</div></aside>";
     var Jn = el("ar-journey",
       sidebar + "<button class='wsb-hb' id='wsb-hb' aria-label='Menu'>&#9776;</button>"
       + "<div class='wmap' id='wmap'><div class='wmap-inner'>"
@@ -3501,7 +3601,7 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
         if(a==="map")return; if(a==="cont"){ if(nz){sfx("correct");showJunction(nz.lane,nz.node);}else showTest(); return;}
         if(a==="test"){showTest();return;} if(a==="review"){showReview();return;} if(a==="stats"){showStats();return;}
         if(a==="plan"){showPlan();return;} if(a==="tools"){showToolkit();return;} if(a==="daily"){showDaily();return;}
-        if(a==="login"){Jn.remove();showAuth("signin");return;} if(a==="signout"){signOut();return;} if(a==="home"){Jn.remove();showSite();return;} return; }
+        if(a==="login"){Jn.remove();showAuth("signin");return;} if(a==="signout"){signOut();return;} if(a==="home"){Jn.remove();showDashboard();return;} return; }
       if (t.closest && t.closest("#wmap-rev")) { showReview(); return; }
       if (t.closest && t.closest("#wmap-cont")) { if(nz){sfx("correct");showJunction(nz.lane,nz.node);}else showTest(); return; }
       if (t.closest && t.closest("[data-summit]")) { showTest(); return; }
@@ -4270,7 +4370,8 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
     try {
       ensureAppState();
       if (captureHash()) return;
-      if (signedIn()) { showJourney(); return; }
+      var _ent=false; try{_ent=localStorage.getItem("arcade:entered")==="1";}catch(e){}
+      if (signedIn()||_ent) { showDashboard(); return; }
       showSite();
     } catch (e) { showSite(); }
   }, 0);
