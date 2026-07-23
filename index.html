@@ -2372,7 +2372,7 @@ The caution is warranted for a further reason. Senescence exists because it does
   + ".mapcart .mc-t{color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.5)}.mapcart .mc-s{color:#ffe9b0;text-shadow:0 1px 3px rgba(0,0,0,.5)}";
   CSS = CSS
   + "#ar-journey{background:#12325c}.wmap{background:#12325c;left:238px}"
-  + ".wmap-inner{position:relative;max-width:560px;margin:0 auto}"
+  + ".wmap-inner{position:relative;width:100%;max-width:none;margin:0}"
   + ".wmap-img{display:block;width:100%;height:auto;user-select:none}"
   + ".rplaque{position:absolute;transform:translate(-50%,-50%);font-family:'Cinzel',serif;font-weight:700;font-size:clamp(10px,1.6vw,15px);color:#fff;letter-spacing:.05em;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,.85),0 0 10px rgba(0,0,0,.6);pointer-events:none;white-space:nowrap;z-index:2}"
   + ".hs{position:absolute;width:9%;padding-bottom:9%;transform:translate(-50%,-50%);cursor:pointer;z-index:4}"
@@ -3317,12 +3317,12 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
   /* hotspot coords (% of the portrait map image) per subject, in zone order.
      Tuned to the illustration; refine live if a landmark is slightly off. */
   var HOT = {
-    english: [[27,67],[26,84],[48,90],[58,80],[60,72],[70,79],[44,73],[13,72],[67,92]],
-    reading: [[45,53],[24,50],[51,57],[56,61],[40,58],[8,49],[33,60],[62,52],[11,63]],
-    math:    [[60,40],[72,44],[46,40],[45,43],[18,36],[9,36],[84,34],[30,45],[68,33],[13,45]],
-    science: [[22,22],[70,23],[50,23],[88,16],[82,7],[18,9],[45,28],[58,27],[34,19]]
+    english: [[30,5],[45,4],[60,6],[66,9],[50,10],[35,8],[26,12],[42,13],[57,13]],
+    reading: [[53,20],[59,23],[50,27],[56,30],[40,33],[27,35],[17,39],[12,44],[31,42]],
+    math:    [[60,51],[50,54],[46,58],[57,60],[65,57],[38,61],[28,65],[16,68],[48,66],[59,63]],
+    science: [[66,73],[44,75],[30,77],[73,79],[20,82],[55,80],[78,83],[38,84],[62,85]]
   };
-  var REGION_LABEL = { english:[36,74,"The Grammar Kingdom"], reading:[34,55,"The Enchanted Woods"], math:[48,38,"The Number Canyon"], science:[50,15,"The Lab Valley"] };
+  var REGION_LABEL = { english:[50,16,"The Grammar Village"], reading:[30,40,"The Enchanted Woods"], math:[40,55,"The Number Desert"], science:[72,77,"The Science Isles"] };
   function showJourney() {
     if (!document.getElementById("ar-mapfonts")) { var lk=document.createElement("link"); lk.id="ar-mapfonts"; lk.rel="stylesheet"; lk.href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IM+Fell+English+SC&display=swap"; document.head.appendChild(lk); }
     var s = appState() || {}, xp = s.xp || 0, rk = rankOf(xp), guest = isGuest(), js0 = jstate();
@@ -3345,7 +3345,7 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
           + "<div class='hs-tip'><b>" + nd.name + "</b><span>" + (mast ? "Mastered" : (done ? "Cleared" : (locked ? "Locked" : "Start lesson"))) + "</span></div></div>";
       });
     });
-    spots += "<div class='hs summit' style='left:50%;top:9%' data-summit='1'><div class='hs-glow' style='--gc:#ffd23e'></div><div class='hs-pin'>&#9819;</div><div class='hs-tip'><b>The Final Summit</b><span>Full mock test</span></div></div>";
+    spots += "<div class='hs summit' style='left:56%;top:89%' data-summit='1'><div class='hs-glow' style='--gc:#ffd23e'></div><div class='hs-pin'>&#9819;</div><div class='hs-tip'><b>The Final Summit</b><span>Full mock test</span></div></div>";
     var plaques = "";
     Object.keys(REGION_LABEL).forEach(function (id) { var r = REGION_LABEL[id]; plaques += "<div class='rplaque' style='left:" + r[0] + "%;top:" + r[1] + "%'>" + r[2] + "</div>"; });
     function nav(act, ic, label, on) { return "<button class='wsb-item" + (on ? " on" : "") + "' data-act='" + act + "'>" + navIcon(ic) + "<span>" + label + "</span></button>"; }
