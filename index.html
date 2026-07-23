@@ -3285,9 +3285,9 @@ The caution is warranted for a further reason. Senescence exists because it does
       + "<div class='st-hero pxhero'><img class='pxhero-img' src='hero.png' alt='' draggable='false'/>" + "<div class='st-scrim'></div>"
       + "<div class='st-heroin'>"
       + "<div class='st-kbadge'>&#9733; THE 2025+ ENHANCED ACT</div>"
-      + "<h1 class='st-h1'>Begin your<br><span>ACT quest.</span></h1>"
-      + "<p class='st-sub'>Learn every skill, battle 500+ real questions with fully explained answers, and climb from the harbor to a perfect 36.</p>"
-      + "<div class='st-cta'><button class='ar-btn green big' id='st-start2'>Start your journey &#9654;</button><button class='ar-btn big' id='st-signin2'>Sign in</button></div>"
+      + "<h1 class='st-h1'>Your climb to 36<br><span>starts here.</span></h1>"
+      + "<p class='st-sub'>Master every skill, take on 500+ real ACT questions with instant explanations, and level up from your first lesson to a perfect score.</p>"
+      + "<div class='st-cta'><button class='ar-btn green big' id='st-start2'>Enter your Command Center &#9654;</button><button class='ar-btn big' id='st-signin2'>Sign in</button></div>"
       + "<div class='st-chips'><span>500+ questions</span><span>4 worlds</span><span>37 skill zones</span><span>100% free</span></div>"
       + "</div></div>"
       + "<div class='st-sec'><h2 class='st-h2'>Everything you need to hit your target</h2><div class='st-grid'>" + cards + "</div></div>"
@@ -4507,8 +4507,7 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
       ensureAppState();
       if (captureHash()) return;
       showLoading(function(){
-        try{ if(!signedIn()){ localStorage.setItem("arcade:entered","1"); localStorage.setItem("arcade:guest","1"); } }catch(e){}
-        showDashboard();
+        if(signedIn()){ showDashboard(); } else { showSite(); }
       });
     } catch (e) { showSite(); }
   }, 0);
