@@ -3328,12 +3328,12 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
   /* hotspot coords (% of the portrait map image) per subject, in zone order.
      Tuned to the illustration; refine live if a landmark is slightly off. */
   var HOT = {
-    english: [[30,5],[45,4],[60,6],[66,9],[50,10],[35,8],[26,12],[42,13],[57,13]],
-    reading: [[53,20],[59,23],[50,27],[56,30],[40,33],[27,35],[17,39],[12,44],[31,42]],
-    math:    [[60,51],[50,54],[46,58],[57,60],[65,57],[38,61],[28,65],[16,68],[48,66],[59,63]],
-    science: [[66,73],[44,75],[30,77],[73,79],[20,82],[55,80],[78,83],[38,84],[62,85]]
+    english: [[14,14],[27,12],[40,13],[52,15],[62,19],[45,21],[31,21],[19,22],[70,20]],
+    reading: [[47,31],[30,34],[19,33],[63,33],[71,40],[33,42],[66,27],[11,40],[90,30]],
+    math:    [[54,47],[42,53],[36,51],[48,50],[25,54],[58,61],[70,57],[80,46],[88,53],[63,50]],
+    science: [[64,72],[90,66],[78,79],[31,74],[42,81],[55,76],[16,78],[72,85],[49,71]]
   };
-  var REGION_LABEL = { english:[50,16,"The Grammar Village"], reading:[30,40,"The Enchanted Woods"], math:[40,55,"The Number Desert"], science:[72,77,"The Science Isles"] };
+  var REGION_LABEL = { english:[45,6,"The Grammar Village"], reading:[80,19,"The Enchanted Woods"], math:[72,63,"The Number Desert"], science:[22,87,"The Science Isles"] };
   function showJourney() {
     if (!document.getElementById("ar-mapfonts")) { var lk=document.createElement("link"); lk.id="ar-mapfonts"; lk.rel="stylesheet"; lk.href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IM+Fell+English+SC&display=swap"; document.head.appendChild(lk); }
     var s = appState() || {}, xp = s.xp || 0, rk = rankOf(xp), guest = isGuest(), js0 = jstate();
@@ -3357,7 +3357,7 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
           + "<div class='hs-tip'><b>" + nd.name + "</b><span>" + (mast ? "Mastered" : (done ? "Cleared" : (locked ? "Locked" : "Start lesson"))) + "</span></div></div>";
       });
     });
-    spots += "<div class='hs summit" + (firstReveal ? " reveal" : "") + "' style='left:56%;top:89%" + (firstReveal ? ";animation-delay:" + (ri * 45) + "ms" : "") + "' data-summit='1'><div class='hs-glow' style='--gc:#ffd23e'></div><div class='hs-pin'>&#9819;</div><div class='hs-tip'><b>The Final Summit</b><span>Full mock test</span></div></div>";
+    spots += "<div class='hs summit" + (firstReveal ? " reveal" : "") + "' style='left:47%;top:90%" + (firstReveal ? ";animation-delay:" + (ri * 45) + "ms" : "") + "' data-summit='1'><div class='hs-glow' style='--gc:#ffd23e'></div><div class='hs-pin'>&#9819;</div><div class='hs-tip'><b>The Final Summit</b><span>Full mock test</span></div></div>";
     var contName = nz ? nz.node.name : "The Final Summit", contSub = nz ? "Continue your quest" : "Ready for the";
     var contBtn = "<button class='wmap-cont' id='wmap-cont'><span class='wc-ic'>&#9654;</span><span class='wc-tx'><small>" + contSub + "</small><b>" + esc(contName) + "</b></span></button>";
     var plaques = "";
@@ -3377,7 +3377,7 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
     var Jn = el("ar-journey",
       sidebar + "<button class='wsb-hb' id='wsb-hb' aria-label='Menu'>&#9776;</button>"
       + "<div class='wmap' id='wmap'><div class='wmap-inner'>"
-      + "<img class='wmap-img' src='map.png' alt='Adventure map' draggable='false'/>"
+      + "<img class='wmap-img' src='Gemini_Generated_Image_irp7i5irp7i5irp7%20(3).png' alt='Adventure map' draggable='false'/>"
       + plaques + spots + "</div></div>" + contBtn);
     Jn.addEventListener("click", function (ev) {
       if (shielded(Jn)) return;
