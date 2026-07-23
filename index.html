@@ -2374,6 +2374,16 @@ The caution is warranted for a further reason. Senescence exists because it does
   + "#ar-journey{background:#12325c}.wmap{background:#12325c;left:238px;overflow-x:hidden;overflow-y:auto}"
   + ".wmap-inner{position:relative;width:100%;max-width:none;margin:0}"
   + ".wmap-img{max-width:100%}"
+  + ".hs.reveal{animation:hsIn .55s cubic-bezier(.2,1.5,.45,1) backwards}"
+  + "@keyframes hsIn{from{opacity:0;transform:translate(-50%,-26%) scale(.4)}60%{opacity:1}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}"
+  + ".wmap-cont{position:fixed;bottom:22px;left:calc(238px + (100% - 238px)/2);transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:12px;padding:11px 24px 11px 18px;border:none;cursor:pointer;border-radius:44px;background:linear-gradient(180deg,#ff5c3e,#df3720);color:#fff;box-shadow:0 8px 22px rgba(223,55,32,.5),0 2px 0 rgba(0,0,0,.25);animation:wcpulse 1.9s ease-in-out infinite}"
+  + ".wmap-cont:hover{filter:brightness(1.08);transform:translateX(-50%) translateY(-2px)}"
+  + ".wmap-cont:active{transform:translateX(-50%) translateY(1px)}"
+  + ".wmap-cont .wc-ic{font-size:15px}"
+  + ".wmap-cont .wc-tx{display:flex;flex-direction:column;align-items:flex-start;line-height:1.12;text-align:left}"
+  + ".wmap-cont .wc-tx small{font-size:10px;letter-spacing:.13em;text-transform:uppercase;opacity:.85}"
+  + ".wmap-cont .wc-tx b{font-family:'Cinzel',serif;font-size:15px}"
+  + "@keyframes wcpulse{0%,100%{box-shadow:0 8px 22px rgba(223,55,32,.5),0 2px 0 rgba(0,0,0,.25)}50%{box-shadow:0 10px 32px rgba(255,92,62,.85),0 2px 0 rgba(0,0,0,.25)}}"
   + ".wmap-img{display:block;width:100%;height:auto;user-select:none}"
   + ".rplaque{position:absolute;transform:translate(-50%,-50%);font-family:'Cinzel',serif;font-weight:700;font-size:clamp(10px,1.6vw,15px);color:#fff;letter-spacing:.05em;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,.85),0 0 10px rgba(0,0,0,.6);pointer-events:none;white-space:nowrap;z-index:2}"
   + ".hs{position:absolute;width:9%;padding-bottom:9%;transform:translate(-50%,-50%);cursor:pointer;z-index:4}"
@@ -2395,7 +2405,7 @@ The caution is warranted for a further reason. Senescence exists because it does
   + ".hs-tip{position:absolute;left:50%;bottom:100%;transform:translate(-50%,-6px);white-space:nowrap;background:#1a1226;color:#f4e6c4;border:1px solid #6a4e28;border-radius:9px;padding:7px 12px;opacity:0;pointer-events:none;transition:opacity .15s;box-shadow:0 6px 16px rgba(0,0,0,.5);z-index:30}"
   + ".hs:hover .hs-tip{opacity:1}"
   + ".hs-tip b{display:block;font-family:'Cinzel',serif;font-weight:700;font-size:13px}.hs-tip span{font-family:'IM Fell English SC',serif;font-size:12px;color:#c9b48c}"
-  + "@media(max-width:820px){.wmap{left:0}}";
+  + "@media(max-width:820px){.wmap{left:0}.wmap-cont{left:50%}}";
   CSS = CSS
   + "#ar-site{background:#0b0620}"
   + "#ar-site .st-nav{background:rgba(11,6,32,.72);backdrop-filter:blur(8px);border-bottom-color:rgba(255,255,255,.08)}"
@@ -3333,20 +3343,23 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
     var nz = null;
     for (var pi = 0; pi < PATHS.length && !nz; pi++) { var pp = PATHS[pi], uu0 = laneUnlockIdx(pp); for (var ii = 0; ii < pp.nodes.length; ii++) { var lk0 = guest ? ii > 0 : ii > uu0; if (!js0.done[pp.nodes[ii].id] && !lk0) { nz = { lane: pp, node: pp.nodes[ii] }; break; } } }
     /* landmark hotspots */
-    var spots = "";
+    var spots = "", ri = 0, firstReveal = !window.__mapRevealed; window.__mapRevealed = true;
     PATHS.forEach(function (p) {
       var uu = laneUnlockIdx(p), coords = HOT[p.id] || [];
       p.nodes.forEach(function (nd, i) {
         var c = coords[i]; if (!c) return;
         var done = !!js0.done[nd.id], locked = guest ? i > 0 : i > uu, cur = (!done && !locked), mast = done && mastery[nd.id];
-        var cls = "hs " + (done ? "done" : (locked ? "locked" : (cur ? "cur" : "open")));
-        spots += "<div class='" + cls + "' style='left:" + c[0] + "%;top:" + c[1] + "%' data-node='" + nd.id + "' data-lane='" + p.id + "'>"
+        var cls = "hs " + (done ? "done" : (locked ? "locked" : (cur ? "cur" : "open"))) + (firstReveal ? " reveal" : "");
+        var dly = firstReveal ? ";animation-delay:" + (ri++ * 45) + "ms" : "";
+        spots += "<div class='" + cls + "' style='left:" + c[0] + "%;top:" + c[1] + "%" + dly + "' data-node='" + nd.id + "' data-lane='" + p.id + "'>"
           + "<div class='hs-glow' style='--gc:" + p.color + "'></div>"
           + "<div class='hs-pin'>" + (mast ? "&#9733;" : (done ? "&#10003;" : (locked ? "&#128274;" : "&#9660;"))) + "</div>"
           + "<div class='hs-tip'><b>" + nd.name + "</b><span>" + (mast ? "Mastered" : (done ? "Cleared" : (locked ? "Locked" : "Start lesson"))) + "</span></div></div>";
       });
     });
-    spots += "<div class='hs summit' style='left:56%;top:89%' data-summit='1'><div class='hs-glow' style='--gc:#ffd23e'></div><div class='hs-pin'>&#9819;</div><div class='hs-tip'><b>The Final Summit</b><span>Full mock test</span></div></div>";
+    spots += "<div class='hs summit" + (firstReveal ? " reveal" : "") + "' style='left:56%;top:89%" + (firstReveal ? ";animation-delay:" + (ri * 45) + "ms" : "") + "' data-summit='1'><div class='hs-glow' style='--gc:#ffd23e'></div><div class='hs-pin'>&#9819;</div><div class='hs-tip'><b>The Final Summit</b><span>Full mock test</span></div></div>";
+    var contName = nz ? nz.node.name : "The Final Summit", contSub = nz ? "Continue your quest" : "Ready for the";
+    var contBtn = "<button class='wmap-cont' id='wmap-cont'><span class='wc-ic'>&#9654;</span><span class='wc-tx'><small>" + contSub + "</small><b>" + esc(contName) + "</b></span></button>";
     var plaques = "";
     Object.keys(REGION_LABEL).forEach(function (id) { var r = REGION_LABEL[id]; plaques += "<div class='rplaque' style='left:" + r[0] + "%;top:" + r[1] + "%'>" + r[2] + "</div>"; });
     function nav(act, ic, label, on) { return "<button class='wsb-item" + (on ? " on" : "") + "' data-act='" + act + "'>" + navIcon(ic) + "<span>" + label + "</span></button>"; }
@@ -3365,7 +3378,7 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
       sidebar + "<button class='wsb-hb' id='wsb-hb' aria-label='Menu'>&#9776;</button>"
       + "<div class='wmap' id='wmap'><div class='wmap-inner'>"
       + "<img class='wmap-img' src='map.png' alt='Adventure map' draggable='false'/>"
-      + plaques + spots + "</div></div>");
+      + plaques + spots + "</div></div>" + contBtn);
     Jn.addEventListener("click", function (ev) {
       if (shielded(Jn)) return;
       var t = ev.target;
@@ -3376,6 +3389,7 @@ function shipFlourish(x,y){ return "<g stroke='"+INK+"' stroke-width='1.6' fill=
         if(a==="test"){showTest();return;} if(a==="review"){showReview();return;} if(a==="stats"){showStats();return;}
         if(a==="plan"){showPlan();return;} if(a==="tools"){showToolkit();return;} if(a==="daily"){showDaily();return;}
         if(a==="login"){Jn.remove();showAuth("signin");return;} if(a==="signout"){signOut();return;} if(a==="home"){Jn.remove();showSite();return;} return; }
+      if (t.closest && t.closest("#wmap-cont")) { if(nz){sfx("correct");showJunction(nz.lane,nz.node);}else showTest(); return; }
       if (t.closest && t.closest("[data-summit]")) { showTest(); return; }
       var hs = t.closest && t.closest(".hs[data-node]");
       if (hs) { var lane=PATHS.find(function(p){return p.id===hs.dataset.lane;}); var node=lane.nodes.find(function(n){return n.id===hs.dataset.node;});
